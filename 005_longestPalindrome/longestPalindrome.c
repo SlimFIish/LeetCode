@@ -13,5 +13,40 @@ Given a string s, find the longest palindromic substring in s. You may assume th
 输出: "bb"
 */
 
-/*
-Tips: manacher, O(z)*/
+/*Method1: A better answer from Leetcode submission record*/
+char* longestPalindrome(char* s) 
+{
+    int i, left, right, lenS, maxLen=1, start=0;
+    char *ret;
+    
+    if(!s) return NULL;
+    if(strlen(s) <= 1) return s;
+    
+    lenS = strlen(s);
+    for(i = 0; i < lenS-1;){
+        if(lenS-i <= maxLen/2)
+            break;
+        
+        left = right = i;
+        while(right < lenS-1 && s[right] == s[right+1])
+            right++;
+        
+        i = right+1;
+        
+        while(right > 0 && right < lenS-1 && s[left-1]==s[right+1]){
+            left--;
+            right++;
+        }
+        
+        if(right-left+1 > maxLen){
+            maxLen = right-left+1;
+            start = left;
+        }
+    }
+    
+    ret = (char*)malloc(maxLen+1);
+    strncpy(ret, s+start, maxLen);
+    ret[maxLen] = '\0';
+    return ret;
+}
+
