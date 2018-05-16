@@ -28,11 +28,15 @@ char* longestPalindrome(char* s)
             break;
         
         left = right = i;
+
+	/*1. find the rightest same element, exclude odd or even symmetry problems */
         while(right < lenS-1 && s[right] == s[right+1])
             right++;
-        
+
+        /*2. next start from right+1, because length of Palindrome from i+1 will never larger than right*/
         i = right+1;
-        
+	
+	/*3. find the Palindrome, and move left and right pointer*/        
         while(right > 0 && right < lenS-1 && s[left-1]==s[right+1]){
             left--;
             right++;
