@@ -16,9 +16,9 @@ Given a 32-bit signed integer, reverse digits of an integer.
 输出: 21
 
 注意:
-假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−231,  231 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
+假设我们的环境只能存储 32 位有符号整数，其数值范围是 [−2^31,  2^31 − 1]。根据这个假设，如果反转后的整数溢出，则返回 0。
 
-Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−231,  231 − 1].
+Assume we are dealing with an environment which could only store integers within the 32-bit signed integer range: [−2^31,  2^31 − 1].
 For the purpose of this problem, assume that your function returns 0 when the reversed integer overflows.
 
 */
